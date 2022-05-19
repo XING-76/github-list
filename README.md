@@ -1,6 +1,6 @@
 # GitHub users list
 
-[Demo](https://codesandbox.io/s/github-list-n4kbks)
+- [Demo](https://codesandbox.io/s/github-list-n4kbks)
 
 # 運用技術
 
