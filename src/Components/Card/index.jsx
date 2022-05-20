@@ -12,9 +12,9 @@ const Card = (props) => {
         users?.map((userObj) => {
           return (
             <div key={userObj.id} className="card">
-              <a rel="noreferrer" href="#" onClick={() => getUser(userObj.login)} >
+              <div className="card-img" onClick={() => getUser(userObj.login)} >
                 <img alt="head_portrait" src={userObj.avatar_url}/>
-              </a>
+              </div>
               <p className="card-text">
                 { userObj.login }
                 { userObj.site_admin ? <AiFillCheckSquare style={{color: "green"}} /> : <AiFillCloseSquare style={{color: "red"}}/> }

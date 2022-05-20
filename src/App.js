@@ -39,9 +39,15 @@ function App() {
 
   return (
     <>
-      <Card users={users} getUser={getUser} />
-      <Pagination currentPage={currentPage} getPage={getPage}/>
-      { modalOpen && <Modal closeModal={closeModal} user={user} /> }
+      {
+        users === [] ? <div style={{textAlign: "center"}}>Loading...</div> : (
+          <>
+            <Card users={users} getUser={getUser} />
+            <Pagination currentPage={currentPage} getPage={getPage}/>
+            { modalOpen && <Modal closeModal={closeModal} user={user} /> }
+          </>
+        )
+      }
     </>
   );
 }

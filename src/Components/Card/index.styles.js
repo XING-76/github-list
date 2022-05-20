@@ -14,19 +14,21 @@ export const Wrapper = styled.div`
     border: 1px solid #efefef;
     text-align: center;
 
-    a {
+    .card-img {
       width: 100%;
       img {
         margin-bottom: .75rem;
         border-radius: 100px;
         width: 100%;
         max-width: 100px;
+        cursor: pointer;
       }
     }
     .card-text {
       display: flex;
       justify-content: center;
       align-items: center;
+      word-break: break-word;
       svg {
         padding-left: .5rem;
       }

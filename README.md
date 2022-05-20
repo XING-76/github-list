@@ -2,14 +2,14 @@
 
 - [Demo](https://codesandbox.io/s/github-list-n4kbks)
 
-# 運用技術
+# Skill
 
 - React Hooks
 - styled-component
 - React Icons
-- fetch 的使用
+- fetch
 
-# 花費時間
+# Time spent
 
-- List：約莫 1 小時
-- bonus + 樣式：約莫 3 小時
+- List： 1 hr
+- bonus + style： 3 hr
