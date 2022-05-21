@@ -10,14 +10,21 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const [modalOpen, setModalOpen] = useState(false);
   const [user, setUser] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     getUsers();
   }, []);
 
   const getUsers = async (since) => {
-    const res = await (await fetch(`https://api.github.com/users?since=${since}&per_page=20`)).json();
-    setUsers(res);
+    setLoading(true);
+    try {
+      const res = await (await fetch(`https://api.github.com/users?since=${since}&per_page=20`)).json();
+      setUsers(res);
+      setLoading(false);
+    } catch (err) {
+      window.alert(`${err}, please reload the page.`);
+    }
   }
 
   const getPage = (page) => {
@@ -28,9 +35,13 @@ function App() {
   }
 
   const getUser = async (name) => {
-    const res = await (await fetch(`https://api.github.com/users/${name}`, { username: name })).json();
-    setUser([res]);
-    setModalOpen(true);
+    try {
+      const res = await (await fetch(`https://api.github.com/users/${name}`, { username: name })).json();
+      setUser([res]);
+      setModalOpen(true);
+    } catch (err) {
+      window.alert(`${err}, please try again.`);
+    }
   }
 
   const closeModal = () => {
@@ -40,7 +51,7 @@ function App() {
   return (
     <>
       {
-        users === [] ? <div style={{textAlign: "center"}}>Loading...</div> : (
+        loading ? <div style={{textAlign: "center"}}>Loading...</div> : (
           <>
             <Card users={users} getUser={getUser} />
             <Pagination currentPage={currentPage} getPage={getPage}/>
